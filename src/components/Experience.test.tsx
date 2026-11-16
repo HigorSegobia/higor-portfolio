@@ -1,14 +1,17 @@
 import { render, screen, within } from '@testing-library/react';
 import { GuidesProvider } from '../context/GuidesContext';
 import { jobs } from '../data/profile';
+import { LangProvider } from '../i18n/LangContext';
 import { Experience } from './Experience';
 
 describe('Experiência', () => {
   beforeEach(() => {
     render(
-      <GuidesProvider>
-        <Experience />
-      </GuidesProvider>,
+      <LangProvider lang="pt">
+        <GuidesProvider>
+          <Experience />
+        </GuidesProvider>
+      </LangProvider>,
     );
   });
 

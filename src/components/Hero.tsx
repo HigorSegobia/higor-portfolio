@@ -1,6 +1,8 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { profile } from '../data/profile';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { useLang } from '../i18n/LangContext';
+import { cvFile, SECTION_IDS } from '../i18n/ui';
 import { Box } from './Box';
 import styles from './Hero.module.css';
 
@@ -34,6 +36,7 @@ function useNameWidth() {
 export function Hero() {
   const [nameRef, width] = useNameWidth();
   const reduce = usePrefersReducedMotion();
+  const { t, l, lang, root } = useLang();
   /* passa o brilho metálico de novo, reiniciando só a animação de brilho */
   const replay = () => {
     const el = nameRef.current;
@@ -42,7 +45,8 @@ export function Hero() {
     void el.offsetWidth;
     el.classList.add(styles.again);
   };
-  const { statement: s, links } = profile;
+  const { links } = profile;
+  const s = profile.statement[lang];
 
   return (
     <section className={styles.hero}>
@@ -70,19 +74,22 @@ export function Hero() {
           </p>
           <div className={styles.actions}>
             <a className={`${styles.btn} ${styles.solid}`} href={links.linkedin.href} target="_blank" rel="noopener noreferrer">
-              Falar comigo no LinkedIn
+              {t.hero.linkedin}
             </a>
-            <a className={styles.btn} href="#experiencia">
-              Ver experiência
+            <a className={styles.btn} href={`#${SECTION_IDS.experience}`}>
+              {t.hero.experience}
+            </a>
+            <a className={`${styles.btn} ${styles.quiet}`} href={root + cvFile(lang)} download>
+              {t.hero.cv}
             </a>
           </div>
         </Box>
 
         <Box as="dl" className={`c-r ${styles.facts}`}>
           {profile.facts.map((f, i) => (
-            <div key={f.label} style={{ animationDelay: `${0.55 + i * 0.07}s` }}>
-              <dt>{f.label}</dt>
-              <dd style={{ animationDelay: `${0.6 + i * 0.07}s` }}>{f.value}</dd>
+            <div key={f.label.pt} style={{ animationDelay: `${0.55 + i * 0.07}s` }}>
+              <dt>{l(f.label)}</dt>
+              <dd style={{ animationDelay: `${0.6 + i * 0.07}s` }}>{l(f.value)}</dd>
             </div>
           ))}
         </Box>

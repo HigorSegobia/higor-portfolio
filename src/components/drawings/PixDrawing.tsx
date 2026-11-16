@@ -1,5 +1,5 @@
 /** duas contas e uma transferência indo e voltando sem parar: o PIX */
-export function PixDrawing({ animate }: { animate: boolean }) {
+export function PixDrawing({ animate, caption }: { animate: boolean; caption: string }) {
   return (
     <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       {[36, 220].map((x, i) => (
@@ -18,8 +18,8 @@ export function PixDrawing({ animate }: { animate: boolean }) {
           </animateMotion>
         )}
       </rect>
-      <text x={160} y={186} textAnchor="middle" fontFamily="Archivo, sans-serif" fontSize={13} fontWeight={600} fill="var(--ink-soft)">
-        Banco Central, 2020
+      <text x={160} y={186} textAnchor="middle" fontFamily="var(--font)" fontSize={13} fontWeight={600} fill="var(--ink-soft)">
+        {caption}
       </text>
     </svg>
   );

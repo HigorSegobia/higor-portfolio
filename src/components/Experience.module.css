@@ -39,7 +39,7 @@
   transition: color 0.4s;
 }
 .lit .when b {
-  color: var(--signal);
+  color: var(--signal-on-dark);
 }
 
 .job h3 {

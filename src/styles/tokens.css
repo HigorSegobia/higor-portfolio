@@ -16,10 +16,13 @@
   --graphite-stroke: #5d646a;
 
   --signal: #f2561d;
+  /* o laranja como texto: escurecido sobre o concreto, clareado sobre o grafite, ambos acima de 4.5:1 (WCAG AA) */
+  --signal-ink: #962f0a;
+  --signal-on-dark: #f45d26;
   --guide: #1597c4;
   --ok: #2f9a5f;
 
-  --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --ease: cubic-bezier(0.16, 0.8, 0.2, 1);
 
   --gap: 24px;

@@ -32,7 +32,7 @@
   transition: background-size 0.4s var(--ease), color 0.2s;
 }
 .links a:hover {
-  color: var(--signal);
+  color: var(--signal-on-dark);
   background-size: 100% 2px;
 }
 .links a span {

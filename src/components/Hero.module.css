@@ -238,3 +238,17 @@
     display: none;
   }
 }
+
+/* terceiro botão, mais discreto: só sublinhado, para não competir com os dois principais */
+.quiet {
+  border-color: transparent;
+  padding-inline: 4px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.quiet:hover {
+  background-size: 0 100%;
+  color: var(--ink);
+  text-decoration-thickness: 2px;
+}

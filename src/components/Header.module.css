@@ -17,7 +17,7 @@
   background: var(--ok);
 }
 .nav {
-  grid-column: 7 / 13;
+  grid-column: 7 / 12;
   display: flex;
   gap: 24px;
   font-size: 15px;
@@ -32,11 +32,41 @@
   color: var(--ink);
   background-size: 100% 1px;
 }
+/* troca de idioma: um selo de duas letras no fim da barra */
+.lang {
+  grid-column: 12 / 13;
+  justify-self: end;
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  height: 32px;
+  padding-inline: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  font-stretch: 112%;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+.lang:hover {
+  background: var(--ink);
+  color: var(--concrete-hi);
+}
+@media (max-width: 1100px) {
+  .nav {
+    gap: 16px;
+  }
+}
 @media (max-width: 860px) {
   .nav {
     display: none;
   }
   .available {
-    grid-column: 1 / -1;
+    grid-column: 1 / 11;
+  }
+  .lang {
+    grid-column: 11 / 13;
   }
 }

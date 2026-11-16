@@ -37,7 +37,7 @@
   color: var(--ink-soft);
 }
 .primary .area {
-  color: var(--signal);
+  color: var(--signal-ink);
 }
 .head {
   padding-block: 12px;

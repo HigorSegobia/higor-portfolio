@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { highlights, type Highlight } from '../data/profile';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
+import { useLang } from '../i18n/LangContext';
+import { SECTION_IDS } from '../i18n/ui';
 import { Box } from './Box';
 import { SectionTitle } from './SectionTitle';
 import { CandlesDrawing } from './drawings/CandlesDrawing';
@@ -11,6 +13,7 @@ import styles from './Highlights.module.css';
 function HighlightCard({ item }: { item: Highlight }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = usePrefersReducedMotion();
+  const { t, l } = useLang();
   // cada incremento remonta o desenho e toca a animação de novo
   const [run, setRun] = useState(0);
 
@@ -32,7 +35,7 @@ function HighlightCard({ item }: { item: Highlight }) {
 
   const drawings: Record<Highlight['id'], ReactNode> = {
     crypto: <CandlesDrawing />,
-    pix: <PixDrawing animate={!reduce} />,
+    pix: <PixDrawing animate={!reduce} caption={t.pixCaption} />,
     team: <TeamDrawing />,
   };
 
@@ -42,19 +45,20 @@ function HighlightCard({ item }: { item: Highlight }) {
         {drawings[item.id]}
       </figure>
       <div className={styles.text}>
-        <span className={styles.context}>{item.context}</span>
-        <h3>{item.title}</h3>
-        <p>{item.text}</p>
+        <span className={styles.context}>{l(item.context)}</span>
+        <h3>{l(item.title)}</h3>
+        <p>{l(item.text)}</p>
       </div>
     </Box>
   );
 }
 
 export function Highlights() {
+  const { t } = useLang();
   return (
-    <section className={`section ${styles.section}`} aria-labelledby="destaques">
+    <section className={`section ${styles.section}`} aria-labelledby={SECTION_IDS.highlights}>
       <div className="wrap">
-        <SectionTitle id="destaques" title="Destaques" lead="Três entregas que mostram como trabalho com produto, prazo e time." />
+        <SectionTitle id={SECTION_IDS.highlights} title={t.highlights.title} lead={t.highlights.lead} />
         <div className={`g ${styles.grid}`}>
           {highlights.map((h) => (
             <HighlightCard key={h.id} item={h} />

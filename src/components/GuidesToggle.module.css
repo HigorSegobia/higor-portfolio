@@ -73,3 +73,37 @@
   opacity: 1;
   transform: none;
 }
+
+/* no celular vira só o interruptor, num quadrado de 44px, para não cobrir o texto */
+@media (max-width: 860px) {
+  .button {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .switch {
+    width: 24px;
+    height: 14px;
+  }
+  .switch::after {
+    width: 8px;
+    height: 8px;
+  }
+  .button[aria-pressed='true'] .switch::after {
+    transform: translateX(10px);
+  }
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .hint {
+    left: max(16px, calc(env(safe-area-inset-left, 0px) + 16px));
+    max-width: none;
+  }
+}

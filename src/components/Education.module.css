@@ -13,7 +13,7 @@
   color: var(--ink-soft);
 }
 .wip {
-  color: var(--signal);
+  color: var(--signal-ink);
 }
 .item h3 {
   margin: 6px 0 4px;

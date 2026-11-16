@@ -1,15 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { GuidesProvider } from '../context/GuidesContext';
+import { LangProvider } from '../i18n/LangContext';
 import { Box } from './Box';
 import { GuidesToggle } from './GuidesToggle';
 
 function setup() {
   render(
-    <GuidesProvider>
-      <Box data-testid="bloco">conteúdo</Box>
-      <GuidesToggle />
-    </GuidesProvider>,
+    <LangProvider lang="pt">
+      <GuidesProvider>
+        <Box data-testid="bloco">conteúdo</Box>
+        <GuidesToggle />
+      </GuidesProvider>
+    </LangProvider>,
   );
   return { button: screen.getByRole('button', { name: /guias de layout/i }), bloco: screen.getByTestId('bloco') };
 }

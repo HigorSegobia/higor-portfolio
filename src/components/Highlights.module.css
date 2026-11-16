@@ -97,7 +97,7 @@
 .context {
   font-size: 14px;
   font-weight: 600;
-  color: var(--signal);
+  color: var(--signal-ink);
 }
 .text h3 {
   font-weight: 750;
