@@ -1,0 +1,75 @@
+.button {
+  position: fixed;
+  z-index: 80;
+  right: max(16px, calc(env(safe-area-inset-right, 0px) + 16px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  font: 600 14px/1 var(--font);
+  color: var(--ink);
+  background: var(--concrete-hi);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.switch {
+  position: relative;
+  width: 30px;
+  height: 16px;
+  border: 2px solid var(--ink);
+  transition: background 0.2s, border-color 0.2s;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+  transition: transform 0.25s var(--ease), background 0.2s;
+}
+.button[aria-pressed='true'] .switch {
+  background: var(--guide);
+  border-color: var(--guide);
+}
+.button[aria-pressed='true'] .switch::after {
+  transform: translateX(14px);
+  background: #fff;
+}
+
+.hint {
+  position: fixed;
+  z-index: 79;
+  right: max(16px, calc(env(safe-area-inset-right, 0px) + 16px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 70px);
+  max-width: 260px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  background: var(--ink);
+  color: var(--concrete-hi);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s var(--ease);
+}
+.hint:empty {
+  padding: 0;
+}
+.show {
+  opacity: 1;
+  transform: none;
+}

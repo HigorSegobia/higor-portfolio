@@ -1,0 +1,31 @@
+.boxed {
+  position: relative;
+  outline: 1px solid var(--guide);
+  outline-offset: -1px;
+  animation: outline-in 0.5s var(--ease);
+}
+
+@keyframes outline-in {
+  from {
+    outline-color: transparent;
+  }
+  to {
+    outline-color: var(--guide);
+  }
+}
+
+.size {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  z-index: 5;
+  transform: translateY(-100%);
+  padding: 2px 6px;
+  font: 600 11px/1.4 var(--font);
+  font-stretch: 100%;
+  letter-spacing: 0;
+  color: #fff;
+  background: var(--guide);
+  white-space: nowrap;
+  pointer-events: none;
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Fonte da imagem de prévia (public/og.png, 1200x630). Gere de novo com `npm run og`. -->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=block" />
+    <style>
+      * { box-sizing: border-box; margin: 0; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        position: relative;
+        background:
+          radial-gradient(#00000014 1px, #0000 1.2px) 0 0 / 6px 6px,
+          #c7cac7;
+        color: #1b1e21;
+        font-family: 'Archivo', sans-serif;
+        padding: 72px 80px;
+      }
+      .status { display: flex; align-items: center; gap: 12px; font-size: 26px; color: #4a5056; }
+      .status::before { content: ''; width: 14px; height: 14px; border-radius: 50%; background: #2f9a5f; }
+      h1 {
+        margin-top: 78px;
+        font-size: 124px;
+        line-height: 0.9;
+        font-weight: 850;
+        font-stretch: 125%;
+        letter-spacing: -0.035em;
+        white-space: nowrap;
+      }
+      .dim { display: flex; align-items: center; gap: 14px; margin-top: 26px; width: 1040px; color: #4a5056; font-size: 20px; }
+      .dim::before, .dim::after { content: ''; flex: 1; height: 1px; background: currentColor; }
+      .rule { position: absolute; left: 80px; right: 80px; bottom: 150px; border-top: 2px solid #1b1e21; }
+      .foot { position: absolute; left: 80px; right: 80px; bottom: 72px; display: flex; justify-content: space-between; font-size: 32px; }
+      .foot b { font-weight: 700; }
+      .foot span { color: #4a5056; }
+      .mark { position: absolute; right: 0; top: 0; width: 120px; height: 120px; background: #1b1e21; }
+      .mark::after { content: ''; position: absolute; right: 0; bottom: 0; width: 38px; height: 38px; background: #f2561d; }
+    </style>
+  </head>
+  <body>
+    <div class="mark"></div>
+    <p class="status">Aberto a novas oportunidades</p>
+    <h1>Higor Segobia</h1>
+    <p class="dim"><span>1040 px</span></p>
+    <div class="rule"></div>
+    <p class="foot"><b>Engenheiro de software sênior</b><span>Flutter · produtos financeiros</span></p>
+  </body>
+</html>

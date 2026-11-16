@@ -1,0 +1,10 @@
+.bar {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 70;
+  background: var(--signal);
+  transform-origin: left;
+}

@@ -1,0 +1,11 @@
+.footer {
+  padding-block: 22px;
+  font-size: 14px;
+  color: var(--graphite-soft);
+  border-top: 1px solid var(--graphite-line);
+}
+@media (max-width: 860px) {
+  .footer {
+    row-gap: 4px;
+  }
+}

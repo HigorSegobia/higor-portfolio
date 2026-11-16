@@ -1,0 +1,120 @@
+.section {
+  padding-block: 72px var(--section);
+}
+.job {
+  position: relative;
+  padding-block: 32px 40px;
+  border-top: 1px solid var(--graphite-line);
+}
+.job:last-child {
+  padding-bottom: 8px;
+}
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  background: var(--signal);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.8s var(--ease);
+}
+.lit .line {
+  transform: scaleX(1);
+}
+
+.when {
+  padding-top: 4px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--graphite-soft);
+  font-variant-numeric: tabular-nums;
+}
+.when b {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--graphite-text);
+  transition: color 0.4s;
+}
+.lit .when b {
+  color: var(--signal);
+}
+
+.job h3 {
+  font-weight: 750;
+  font-stretch: 115%;
+  font-size: clamp(24px, 2.5vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  transition: transform 0.7s var(--ease);
+}
+.job:not(.lit) h3 {
+  transform: translateY(8px);
+}
+.role {
+  margin-top: 8px;
+  max-width: 30ch;
+  color: var(--graphite-soft);
+}
+.now {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--graphite);
+  background: var(--graphite-text);
+}
+
+.list {
+  display: grid;
+  gap: 10px;
+  padding: 4px 0 0;
+  list-style: none;
+}
+.list li {
+  position: relative;
+  padding-left: 18px;
+  transition: transform 0.6s var(--ease), color 0.6s;
+}
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 2px;
+  background: #5a6066;
+}
+.list li:nth-child(2) {
+  transition-delay: 0.06s;
+}
+.list li:nth-child(3) {
+  transition-delay: 0.12s;
+}
+.list li:nth-child(4) {
+  transition-delay: 0.18s;
+}
+.job:not(.lit) .list li {
+  transform: translateX(-10px);
+  color: var(--graphite-soft);
+}
+.key {
+  color: #fff;
+  font-weight: 500;
+}
+.list .key::before {
+  background: var(--signal);
+}
+
+@media (max-width: 860px) {
+  .job :global(.g) {
+    row-gap: 12px;
+  }
+  .when b {
+    display: inline;
+    margin-right: 6px;
+  }
+}

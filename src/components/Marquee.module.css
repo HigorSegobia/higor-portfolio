@@ -1,0 +1,27 @@
+.marquee {
+  overflow: hidden;
+  padding-block: 8px 64px;
+  margin-bottom: 88px;
+  border-bottom: 1px solid var(--graphite-line);
+}
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.track span {
+  font-weight: 850;
+  font-stretch: 125%;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  padding-right: 0.6em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--graphite-stroke);
+  transition: color 0.3s, -webkit-text-stroke-color 0.3s;
+}
+.track span:hover {
+  color: var(--signal);
+  -webkit-text-stroke-color: var(--signal);
+}

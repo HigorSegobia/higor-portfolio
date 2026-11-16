@@ -1,0 +1,59 @@
+.section {
+  padding-top: 16px;
+}
+.edu {
+  border-top: 2px solid var(--ink);
+}
+.item {
+  padding-block: 22px 26px;
+}
+.state {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.wip {
+  color: var(--signal);
+}
+.item h3 {
+  margin: 6px 0 4px;
+  font-weight: 750;
+  font-stretch: 115%;
+  font-size: 24px;
+  line-height: 1.15;
+}
+.meta {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.courses {
+  margin-top: 40px;
+  align-items: start;
+}
+.courses h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+.courses ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+.courses li {
+  padding: 9px 0;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  background: linear-gradient(var(--rule), var(--rule)) 0 100% / 100% 1px no-repeat;
+  transition: background-size 0.9s var(--ease);
+}
+.courses li[data-state='waiting'] {
+  background-size: 0 1px;
+}
+@media (max-width: 860px) {
+  .item + .item {
+    border-top: 1px solid var(--rule);
+  }
+  .courses {
+    row-gap: 12px;
+  }
+}

@@ -1,0 +1,27 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.cols {
+  height: 100%;
+}
+.cols i {
+  background: rgba(21, 151, 196, 0.09);
+  border-inline: 1px solid rgba(21, 151, 196, 0.35);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s var(--ease);
+}
+.on .cols i {
+  transform: scaleY(1);
+}
+@media (max-width: 860px) {
+  .cols {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .cols i:nth-child(n + 5) {
+    display: none;
+  }
+}

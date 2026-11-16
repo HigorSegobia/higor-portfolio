@@ -1,0 +1,30 @@
+/* Design tokens. Concreto claro com faixas de grafite; laranja de segurança só para o que importa;
+   azul de guia apenas no modo "Guias de layout". Uma família (Archivo) variando largura e peso. */
+:root {
+  color-scheme: light;
+
+  --concrete: #c7cac7;
+  --concrete-hi: #d3d6d3;
+  --rule: #a4a8a6;
+  --ink: #1b1e21;
+  --ink-soft: #4a5056;
+
+  --graphite: #23272b;
+  --graphite-line: #363b40;
+  --graphite-text: #d9dbd8;
+  --graphite-soft: #959b9f;
+  --graphite-stroke: #5d646a;
+
+  --signal: #f2561d;
+  --guide: #1597c4;
+  --ok: #2f9a5f;
+
+  --font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --ease: cubic-bezier(0.16, 0.8, 0.2, 1);
+
+  --gap: 24px;
+  --max: 1200px;
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --section: 96px;
+}

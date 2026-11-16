@@ -1,0 +1,154 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--concrete);
+  background-image: radial-gradient(rgba(27, 30, 33, 0.05) 1px, transparent 1px);
+  background-size: 5px 5px;
+  color: var(--ink);
+  font-family: var(--font);
+  font-stretch: 100%;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 60;
+  background: var(--concrete);
+}
+
+::selection {
+  background: var(--signal);
+  color: #fff;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* ---------- grade de 12 colunas, usada pela página inteira ---------- */
+.wrap {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+}
+
+.g {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+.c-all {
+  grid-column: 1 / -1;
+}
+.c-l {
+  grid-column: 1 / 7;
+}
+.c-r {
+  grid-column: 7 / 13;
+}
+.c-date {
+  grid-column: 1 / 3;
+}
+.c-mid {
+  grid-column: 3 / 7;
+}
+
+@media (max-width: 860px) {
+  .c-l,
+  .c-r,
+  .c-mid,
+  .c-date {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- faixas ---------- */
+.band {
+  background: var(--graphite);
+  color: var(--graphite-text);
+}
+
+.section {
+  padding-block: var(--section);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes line-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
